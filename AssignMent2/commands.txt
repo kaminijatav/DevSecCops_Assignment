@@ -1,0 +1,14 @@
+# Build multi-stage image
+docker build -t node-multi-stage-app .
+
+# Build single-stage image
+docker build -f Dockerfile.single-stage -t node-single-stage-app .
+
+# List images (for size comparison)
+docker images
+
+# Run container (multi-stage)
+docker run -p 3000:3000 node-multi-stage-app
+
+# Test with curl
+curl http://localhost:3000
